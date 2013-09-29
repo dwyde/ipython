@@ -4,7 +4,7 @@
 casper.notebook_test(function () {
     this.evaluate(function () {
         var cell = IPython.notebook.get_cell(0);
-        cell.set_text('a=10; print a');
+        cell.set_text('1+1');
         cell.execute();
     });
 
@@ -16,6 +16,6 @@ casper.notebook_test(function () {
             var output = cell.output_area.outputs[0].text;
             return output;
         })
-        this.test.assertEquals(result, '10\n', 'stdout output matches')
+        this.test.assertEquals(result, '2', 'stdout output matches')
     });
 });
